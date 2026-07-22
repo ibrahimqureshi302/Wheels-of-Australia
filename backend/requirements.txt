@@ -1,0 +1,35 @@
+# Django and core packages
+Django~=5.0.0
+djangorestframework~=3.14.0
+djangorestframework-simplejwt~=5.3.0
+
+# API Documentation
+drf-spectacular~=0.27.0
+
+# Database
+psycopg[binary]~=3.1.0
+
+# CORS and static files
+django-cors-headers~=4.3.0
+whitenoise~=6.6.0
+
+# Environment configuration
+django-environ~=0.11.0
+
+# Production server
+gunicorn~=21.2.0
+
+# Celery and Redis
+celery~=5.3.0
+django-celery-beat~=2.7.0
+redis~=5.0.0
+
+# WebSockets (real-time GPS tracking) — Channels over ASGI, Redis channel layer
+channels~=4.1.0
+channels-redis~=4.2.0
+daphne~=4.1.0
+
+# Development and testing (optional, can be in separate requirements-dev.txt)
+pytest~=7.4.0
+pytest-django~=4.7.0
+coverage~=7.3.0

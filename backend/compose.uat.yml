@@ -1,0 +1,44 @@
+# UAT environment Docker Compose override
+# Usage: docker compose --env-file .env.uat -f compose.yml -f compose.uat.yml up -d
+
+services:
+  web:
+    ports:
+      - "8000:8000"
+    environment:
+      - DJANGO_ENV=uat
+    command: gunicorn core.wsgi:application --bind 0.0.0.0:8000 --workers 3 --worker-class sync --timeout 120 --keep-alive 2 --log-level info --access-logfile - --error-logfile -
+
+  celery:
+    build: .
+    command: celery -A core worker -l info --concurrency=2
+    environment:
+      - DJANGO_ENV=uat
+      - DJANGO_SETTINGS_MODULE=core.settings
+    depends_on:
+      - db
+      - redis
+    restart: unless-stopped
+
+  celery-beat:
+    build: .
+    command: celery -A core beat -l info
+    environment:
+      - DJANGO_ENV=uat
+      - DJANGO_SETTINGS_MODULE=core.settings
+    depends_on:
+      - db
+      - redis
+    restart: unless-stopped
+
+  # Optional: Redis Commander for monitoring Redis in UAT
+  redis-commander:
+    image: rediscommander/redis-commander:latest
+    environment:
+      - REDIS_HOSTS=local:redis:6379
+    ports:
+      - "8081:8081"
+    depends_on:
+      - redis
+    profiles:
+      - monitoring
