@@ -1,0 +1,18 @@
+/* Picker on top: above modal (1300) and all app UI */
+.react-datepicker-popper,
+.react-datepicker-above-modal {
+  z-index: 9999 !important;
+}
+
+/* Full-width field: override library's inline-block wrapper */
+.datepicker-wrapper,
+.datepicker-wrapper .react-datepicker-wrapper {
+  width: 100%;
+  display: block;
+}
+
+/* Inline calendar in modal: spacing and no clip */
+.datepicker-wrapper.inline-calendar .react-datepicker {
+  margin-top: 8px;
+  border-radius: 8px;
+}
