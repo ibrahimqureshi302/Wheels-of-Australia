@@ -20,8 +20,6 @@ from .views import (
     AdminRegistrationViewSet,
     NotificationViewSet,
 )
-
-
 # Create a router and register our viewsets with it.
 router = DefaultRouter()
 router.register(r'users', UserViewSet)

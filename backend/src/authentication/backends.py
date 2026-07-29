@@ -22,3 +22,5 @@ class RestrictedLoginModelBackend(ModelBackend):
         # Deactivated end users may still authenticate (they land on a locked
         # Profile page); deactivated staff/superusers stay blocked.
         return not (user.is_staff or user.is_superuser)
+
+    
