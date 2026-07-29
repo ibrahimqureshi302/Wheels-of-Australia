@@ -50,7 +50,6 @@ class IsAdmin(BasePermission):
             and (getattr(user, 'role', None) == 'admin' or user.is_superuser)
         )
 
-
 # File field names accepted on the registration endpoint, mapped to document types.
 REGISTRATION_DOC_FIELDS = {
     'license': 'license',
@@ -59,7 +58,6 @@ REGISTRATION_DOC_FIELDS = {
     'certificate': 'certificate',
     'shop_image': 'shop_image',
 }
-
 
 class RegisterView(APIView):
     """Register a new user and sign them in via HttpOnly JWT cookies."""
