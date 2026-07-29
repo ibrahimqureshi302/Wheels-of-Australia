@@ -15,7 +15,6 @@ ROLE_CHOICES = [
     ('mechanic', 'Mechanic'),
 ]
 
-
 class UserManager(BaseUserManager):
     """
     Custom user manager for email-only authentication.

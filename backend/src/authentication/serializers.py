@@ -170,7 +170,6 @@ class UserProfileSerializer(serializers.ModelSerializer):
                 'abn': p.abn,
             }
         return None
-
     def get_documents(self, obj):
         """The documents this user uploaded during registration (every role
         except admin). Looked up via the reverse link from the approved
@@ -273,7 +272,6 @@ class RegistrationCreateSerializer(serializers.ModelSerializer):
             'extra',
         )
         read_only_fields = ('id',)
-
     def validate_role(self, value):
         if value not in ('driver', 'rental', 'mechanic'):
             raise serializers.ValidationError('Role must be driver, rental or mechanic.')

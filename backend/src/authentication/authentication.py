@@ -101,3 +101,6 @@ class SuspensionAwareJWTAuthentication(JWTAuthentication):
             # the UI to the Profile page from that flag.
             return None
         return user, validated_token
+ 
+
+ 

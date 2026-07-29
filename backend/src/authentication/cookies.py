@@ -56,3 +56,4 @@ def clear_auth_cookies(response):
             samesite=settings.AUTH_COOKIE_SAMESITE,
         )
     return response
+

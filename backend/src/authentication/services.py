@@ -68,8 +68,6 @@ def notify_user(recipient, title, message, notification_type='system', link='',
         action=action or '',
         actor_name=actor_name or '',
     )
-
-
 def notify_admins(title, message, notification_type='system', link='',
                   entity_type='', entity_id='', action='', actor_name='',
                   exclude=None):
